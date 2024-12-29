@@ -18,8 +18,8 @@ const CategorySlider = () => {
     <div className="px-28 pb-10">
       {/* for heading text */}
       <div className="text-center my-20 space-y-5">
-        <p>---From 11:00am to 10:00pm---</p>
-        <h1 className="text-5xl font-interFont border-t-gray-200 border-t-4 border-b-4 p-4 w-1/3 mx-auto">
+        <p className="text-secondary">---From 11:00am to 10:00pm---</p>
+        <h1 className="text-5xl font-interFont border-t-gray-200 border-t-4 border-b-4 p-4 w-1/2 mx-auto">
           ORDER ONLINE
         </h1>
       </div>
