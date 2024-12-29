@@ -3,6 +3,7 @@ import Slider from '../components/Slider';
 import CategorySlider from '../components/CategorySlider';
 import BistroBoss from '../components/BistroBoss';
 import PopularMenu from '../components/PopularMenu';
+import ChefRecommend from '../components/ChefRecommend';
 
 const Home = () => {
     return (
@@ -10,7 +11,8 @@ const Home = () => {
             <Slider />
             <CategorySlider />
             <BistroBoss />
-            <PopularMenu/>
+            <PopularMenu />
+            <ChefRecommend/>
         </div>
     );
 };
