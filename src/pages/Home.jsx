@@ -4,6 +4,7 @@ import CategorySlider from '../components/CategorySlider';
 import BistroBoss from '../components/BistroBoss';
 import PopularMenu from '../components/PopularMenu';
 import ChefRecommend from '../components/ChefRecommend';
+import Fetured from '../components/Fetured';
 
 const Home = () => {
     return (
@@ -12,7 +13,8 @@ const Home = () => {
             <CategorySlider />
             <BistroBoss />
             <PopularMenu />
-            <ChefRecommend/>
+            <ChefRecommend />
+            <Fetured/>
         </div>
     );
 };
