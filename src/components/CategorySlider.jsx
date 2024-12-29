@@ -58,7 +58,7 @@ const CategorySlider = () => {
         </SwiperSlide>
         <SwiperSlide className="relative">
           <img src={slide4} alt="" />
-          <h1 className="text-4xl absolute bottom-4 left-16 uppercase text-center text-white  font-cinzelFont">
+          <h1 className="text-4xl absolute bottom-4 left-5 uppercase text-center text-white  font-cinzelFont">
           desserts
           </h1>
         </SwiperSlide>
