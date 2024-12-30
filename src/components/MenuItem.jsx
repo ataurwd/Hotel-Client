@@ -10,10 +10,10 @@ const MenuItem = ({ item }) => {
           alt={name}
         />
         <div className="col-span-4 space-y-2">
-          <h1 className="uppercase text-2xl">{name}</h1>
+          <h1 className="uppercase text-xl">{name}</h1>
           <p>{recipe}</p>
         </div>
-        <p>{price}</p>
+        <p className="col-span-2 text-primary font-bold">{price}</p>
       </div>
   );
 };

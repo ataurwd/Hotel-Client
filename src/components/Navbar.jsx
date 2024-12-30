@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className={`navbar md:px-20 fixed z-10 bg-opacity-50 bg-black text-white`}>
+    <div className={`navbar md:px-20 fixed z-10 bg-opacity-50 bg-black text-white max-w-screen-xl`}>
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -54,7 +54,7 @@ const Navbar = () => {
             </NavLink>
 
             <NavLink
-              to={"/my-added-visa"}
+              to={"/menu"}
               className={({ isActive }) =>
                 isActive ? "text-gray-400 " : "text-black"
               }
@@ -78,35 +78,35 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul
-          className={`menu menu-horizontal px-1 space-x-5 text-[17px] font-medium`}
+          className={`menu menu-horizontal px-1 space-x-5 text-[16px] font-semibold`}
         >
           <NavLink
             to={"/"}
-            className={({ isActive }) => `${isActive ? "text-gray-400" : ""}`}
+            className={({ isActive }) => `${isActive ? "text-primary" : ""}`}
           >
-            Home
+            HOME
           </NavLink>
           <NavLink
             to={"/all-visa"}
-            className={({ isActive }) => `${isActive ? "text-gray-400" : ""}`}
+            className={({ isActive }) => `${isActive ? "text-primary" : ""}`}
           >
             CONTACT US
           </NavLink>
           <NavLink
             to={"/add-visa"}
-            className={({ isActive }) => `${isActive ? "text-gray-400" : ""}`}
+            className={({ isActive }) => `${isActive ? "text-primary" : ""}`}
           >
             DASHBOARD
           </NavLink>
           <NavLink
-            to={"/my-added-visa"}
-            className={({ isActive }) => `${isActive ? "text-gray-400" : ""}`}
+            to={"/menu"}
+            className={({ isActive }) => `${isActive ? "text-primary" : ""}`}
           >
             OUR MENU
           </NavLink>
           <NavLink
             to={"/my-visa-application"}
-            className={({ isActive }) => `${isActive ? "text-gray-400" : ""}`}
+            className={({ isActive }) => `${isActive ? "text-primary" : ""}`}
           >
             OUR SHOP
           </NavLink>

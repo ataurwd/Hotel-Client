@@ -2,19 +2,23 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import MenuItem from "./MenuItem";
 import { Link } from "react-router-dom";
+import useMenu from "../Hooks/useMenu";
 
 const PopularMenu = () => {
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
 
-  // Fetching data from an API
-  useEffect(() => {
-    axios.get("menu.json").then((res) => {
-      const popularItem = res.data.filter(
-        (item) => item.category === "popular"
-      );
-      setData(popularItem);
-    });
-  }, []);
+  // // Fetching data from an API
+  // useEffect(() => {
+  //   axios.get("menu.json").then((res) => {
+  //     const popularItem = res.data.filter(
+  //       (item) => item.category === "popular"
+  //     );
+  //     setData(popularItem);
+  //   });
+  // }, []);
+
+  const [menu] = useMenu();
+  const data = menu.filter((item) => item.category === "popular");
   return (
     <div className="my-16">
       <div className="text-center my-20 space-y-5">
