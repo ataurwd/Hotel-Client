@@ -105,10 +105,10 @@ const Navbar = () => {
             OUR MENU
           </NavLink>
           <NavLink
-            to={"/my-visa-application"}
+            to={"/order"}
             className={({ isActive }) => `${isActive ? "text-primary" : ""}`}
           >
-            OUR SHOP
+            ORDER
           </NavLink>
         </ul>
       </div>

@@ -7,9 +7,9 @@ const useMenu = () => {
 
     // Fetching data from an API
     useEffect(() => {
-      axios.get("menu.json").then((res) => {
+      axios.get("http://localhost:4000/resturent").then((res) => {
           setMenu(res.data);
-          setLoading(false)
+        setLoading(false)
       });
     }, []);
     return [menu, loading]
