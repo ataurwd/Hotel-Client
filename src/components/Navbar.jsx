@@ -1,8 +1,11 @@
 import React from "react";
 import { TbShoppingCartCheck } from "react-icons/tb";
 import { Link, NavLink } from "react-router-dom";
+import useCart from "../Hooks/useCart";
 
 const Navbar = () => {
+  const [cart] = useCart()
+  console.log(cart)
   return (
     <div className={`navbar md:px-20 fixed z-10 bg-opacity-50 bg-black text-white max-w-screen-xl`}>
       <div className="navbar-start">
@@ -113,9 +116,9 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end flex items-center space-x-4">
-        <button className="space-x-3 bg-primary h-10 w-10 rounded-full grid place-items-center">
-          <TbShoppingCartCheck size={20}/>
-        </button>
+        <Link to={'dashboard'} className="space-x-3 bg-primary h-10 w-10 rounded-full flex items-center justify-center">
+          <TbShoppingCartCheck size={20}/> {cart.length}
+        </Link>
         <Link to={"/login"}>
           <button className="px-5 bg-primary font-semibold text-white py-1 rounded-md">
             Login

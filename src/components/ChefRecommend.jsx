@@ -1,27 +1,25 @@
 import React from "react";
 import imges from "../assets/home/slide1.jpg";
+import useMenu from "../Hooks/useMenu";
+import axios from "axios";
 
 const ChefRecommend = () => {
-  const data = [
-    {
-      id: 1,
-      name: "Caeser Salad",
-      description: "Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.",
-      img: imges,
-    },
-    {
-      id: 1,
-      name: "Caeser Salad",
-      description: "Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.",
-      img: imges,
-    },
-    {
-      id: 1,
-      name: "Caeser Salad",
-      description: "Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.",
-      img: imges,
-    },
-  ];
+  const [menu] = useMenu();
+  const handelAddtoCart = (item) => {
+    const data = {
+      price: item.price,
+      name: item.name,
+      category: item.category,
+    };
+    axios.post('http://localhost:4000/cart', data)
+      .then(res => {
+        console.log('Item added to cart:', res.data);
+      })
+      .catch(err => {
+        console.error('Error adding item to cart:', err);
+      });
+  };
+  
   return (
     <div className="my-10">
       <div className="text-center my-20 space-y-5">
@@ -30,8 +28,8 @@ const ChefRecommend = () => {
           CHEF RECOMMENDS
         </h1>
       </div>
-      <div className="grid grid-cols-3 px-20">
-        {data.map((item) => (
+      <div className="grid grid-cols-3 px-20 space-y-5">
+        {menu.slice(0, 6).map((item) => (
           <div
             key={item.id}
             className="w-full max-w-[340px] space-y-3 rounded-xl bg-white p-4 shadow-lg dark:bg-[#18181B]"
@@ -62,14 +60,14 @@ const ChefRecommend = () => {
               />
             </div>
             <div className="space-y-2 font-semibold">
-              <h6 className="text-sm md:text-base lg:text-lg">Product Name</h6>
+              <h6 className="text-sm md:text-base lg:text-lg">{ item.name}</h6>
               <p className="text-xs font-semibold text-gray-400 md:text-sm">
                 Waterproof Sport HD Monitor for MacBook
               </p>
-              <p>$20</p>
+              <p>${ item.price}</p>
             </div>
             <div className="flex flex-wrap items-center justify-center  gap-6 text-sm md:text-base">
-              <button className="rounded-lg bg-primary px-4 py-2 font-semibold text-white duration-300 hover:scale-95 hover:bg-gray-600 w-1/2">
+              <button onClick={() => handelAddtoCart(item)} className="rounded-lg bg-primary px-4 py-2 font-semibold text-white duration-300 hover:scale-95 hover:bg-gray-600 w-1/2">
                 Add to Cart
               </button>
             </div>

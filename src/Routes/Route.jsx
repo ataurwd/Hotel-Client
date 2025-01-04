@@ -4,6 +4,8 @@ import Home from "../pages/Home";
 import Layout from "../Layout/Layout";
 import Menu from "./../pages/Menu";
 import Order from "../pages/Order";
+import Dashboard from "../pages/Dashboard";
+import Cart from './../pages/dashboard/Cart';
 
 const Route = () => {
   const route = new createBrowserRouter([
@@ -16,14 +18,22 @@ const Route = () => {
           element: <Home />,
         },
         {
-          path: "/menu",
+          path: "menu",
           element: <Menu />,
         },
         {
-          path: "/order",
+          path: "order",
           element: <Order />,
         },
       ],
+    },
+    {
+      path: "dashboard",
+      element: <Dashboard />,
+      children: [{
+        path: 'cart',
+        element: <Cart/>
+      }],
     },
   ]);
   return <RouterProvider router={route} />;
