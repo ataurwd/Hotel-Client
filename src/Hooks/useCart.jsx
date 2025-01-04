@@ -1,15 +1,15 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 const useCart = () => {
-    const [cart, setCart] = useState([]);
-    // Fetching data from an API
-    useEffect(() => {
-      axios.get("http://localhost:4000/carts").then((res) => {
-        setCart(res.data);
-      });
-    }, []);
-    return [cart]
+  const { data: cart = [], refetch } = useQuery({
+    queryKey: ["cart"],
+    queryFn: async () => {
+      const res = await axios.get("http://localhost:4000/carts");
+      return res.data;
+    },
+  });
+  return [cart, refetch];
 };
 
 export default useCart;

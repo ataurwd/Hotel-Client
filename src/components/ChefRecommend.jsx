@@ -2,18 +2,26 @@ import React from "react";
 import imges from "../assets/home/slide1.jpg";
 import useMenu from "../Hooks/useMenu";
 import axios from "axios";
+import useCart from "../Hooks/useCart";
 
 const ChefRecommend = () => {
   const [menu] = useMenu();
+  const [cart, refetch] = useCart()
+  console.log(cart)
   const handelAddtoCart = (item) => {
     const data = {
       price: item.price,
       name: item.name,
       category: item.category,
+      img: item.image,
+      recipe: item.recipe
     };
     axios.post('http://localhost:4000/cart', data)
       .then(res => {
-        console.log('Item added to cart:', res.data);
+        if (res.data.insertedId) {
+          alert("Item added to cart!");
+          refetch();
+        }
       })
       .catch(err => {
         console.error('Error adding item to cart:', err);
