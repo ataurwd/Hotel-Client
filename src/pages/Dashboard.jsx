@@ -8,6 +8,9 @@ import {
   TbShoppingCart,
   TbStar,
   TbFileText,
+  TbMenu,
+  TbShoppingBag,
+  TbContract,
 } from "react-icons/tb";
 
 const Dashboard = () => {
@@ -108,7 +111,7 @@ const Dashboard = () => {
               }`
             }
           >
-            <TbHome className="mr-3" /> Menu
+            <TbMenu className="mr-3" /> Menu
           </NavLink>
         </div>
         <div className="w-3/4 mx-auto rounded-md text-center p-4 bg-white mt-5">
@@ -120,7 +123,7 @@ const Dashboard = () => {
               }`
             }
           >
-            <TbHome className="mr-3" /> Shop
+            <TbShoppingBag className="mr-3" /> Shop
           </NavLink>
         </div>
         <div className="w-3/4 mx-auto rounded-md text-center p-4 bg-white my-5">
@@ -132,7 +135,7 @@ const Dashboard = () => {
               }`
             }
           >
-            <TbHome className="mr-3" /> Contact
+            <TbContract className="mr-3" /> Contact
           </NavLink>
         </div>
       </div>

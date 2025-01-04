@@ -1,8 +1,36 @@
 import React from "react";
 import useCart from "../../Hooks/useCart";
+import axios from "axios";
+import Swal from 'sweetalert2'
 
 const Cart = () => {
   const [cart, refetch] = useCart();
+
+  const handelDelete = (id) => {
+    axios.delete(`http://localhost:4000/cart/${id}`)
+      .then(res => {
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+          if (result.isConfirmed) {
+            if (res.data.deletedCount > 0) {
+              refetch();
+            }
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success"
+            });
+          }
+        });
+    })
+  }
 
   return (
     <div className="overflow-x-auto">
@@ -54,7 +82,7 @@ const Cart = () => {
                 </button>
               </th>
               <th className="px-6 py-4 text-start">
-                <button className="flex items-center rounded-full bg-red-500 px-4 py-2 font-bold text-white shadow-md transition-all duration-300 hover:bg-red-700">
+                <button onClick={() => handelDelete(item._id)} className="flex items-center rounded-full bg-red-500 px-4 py-2 font-bold text-white shadow-md transition-all duration-300 hover:bg-red-700">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"

@@ -3,6 +3,7 @@ import imges from "../assets/home/slide1.jpg";
 import useMenu from "../Hooks/useMenu";
 import axios from "axios";
 import useCart from "../Hooks/useCart";
+import Swal from "sweetalert2";
 
 const ChefRecommend = () => {
   const [menu] = useMenu();
@@ -18,8 +19,13 @@ const ChefRecommend = () => {
     };
     axios.post('http://localhost:4000/cart', data)
       .then(res => {
+        
         if (res.data.insertedId) {
-          alert("Item added to cart!");
+          Swal.fire({
+            title: "Product Added!",
+            icon: "success",
+            draggable: false,
+          });
           refetch();
         }
       })
