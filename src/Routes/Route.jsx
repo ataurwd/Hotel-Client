@@ -11,6 +11,8 @@ import Reservation from './../pages/dashboard/Reservation';
 import Payment from './../pages/dashboard/Payment';
 import Booking from './../pages/dashboard/Booking';
 import Review from './../pages/dashboard/Review';
+import Login from './../components/Login';
+import Register from './../components/Register';
 
 const Route = () => {
   const route = new createBrowserRouter([
@@ -30,6 +32,14 @@ const Route = () => {
           path: "order",
           element: <Order />,
         },
+        {
+          path: 'login',
+          element: <Login/>
+        },
+        {
+          path: 'register',
+          element: <Register/>
+        }
       ],
     },
     {

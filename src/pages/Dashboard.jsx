@@ -16,7 +16,7 @@ import {
 const Dashboard = () => {
   return (
     <div className="flex">
-      <div className="w-80 bg-yellow-400 min-h-screen">
+      <div className="w-80 bg-primary min-h-screen">
         <div className="w-3/4 mx-auto rounded-md text-left p-4 bg-white my-2">
           <NavLink
             to={"/dashboard/user-home"}

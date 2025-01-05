@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { TbShoppingCartCheck } from "react-icons/tb";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import useCart from "../Hooks/useCart";
+import AuthContext, { UserContext } from "../context/AuthContext";
 
 const Navbar = () => {
-  const [cart] = useCart()
+  const [cart] = useCart();
+  const { user, logout } = useContext(UserContext);
+  const navigate = useNavigate()
+
+  const handelLogout = () => {
+    logout()
+    navigate('/login')
+  }
   return (
-    <div className={`navbar md:px-20 fixed z-10 bg-opacity-50 bg-black text-white max-w-screen-xl`}>
+    <div
+      className={`navbar md:px-20 fixed z-10 bg-opacity-50 bg-black text-white max-w-screen-xl`}
+    >
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -115,19 +125,30 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end flex items-center space-x-4">
-        <Link to={'dashboard/cart'} className="space-x-3 bg-primary h-10 w-10 rounded-full flex items-center justify-center">
-          <TbShoppingCartCheck size={20}/> {cart.length}
+        <Link
+          to={"dashboard/cart"}
+          className="space-x-3 bg-primary h-10 w-10 rounded-full flex items-center justify-center"
+        >
+          <TbShoppingCartCheck size={20} /> {cart.length}
         </Link>
-        <Link to={"/login"}>
-          <button className="px-5 bg-primary font-semibold text-white py-1 rounded-md">
-            Login
+        {user ? (
+          <button onClick={handelLogout} className="hidden lg:block md:block px-5 bg-primary font-semibold text-white py-1 rounded-md">
+            Logout
           </button>
-        </Link>
-        <Link to={"/register"}>
-          <button className="hidden lg:block md:block px-5 bg-primary font-semibold text-white py-1 rounded-md">
-            Register
-          </button>
-        </Link>
+        ) : (
+          <div className="flex justify-between space-x-4">
+            <Link to={"/login"}>
+              <button className="px-5 bg-primary font-semibold text-white py-1 rounded-md">
+                Login
+              </button>
+            </Link>
+            <Link to={"/register"}>
+              <button  className="hidden lg:block md:block px-5 bg-primary font-semibold text-white py-1 rounded-md">
+                Register
+              </button>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
