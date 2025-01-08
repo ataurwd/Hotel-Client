@@ -11,6 +11,7 @@ import {
   TbMenu,
   TbShoppingBag,
   TbContract,
+  TbUser,
 } from "react-icons/tb";
 
 const Dashboard = () => {
@@ -63,6 +64,18 @@ const Dashboard = () => {
             }
           >
             <TbShoppingCart className="mr-3" /> My Cart
+          </NavLink>
+        </div>
+        <div className="w-3/4 mx-auto rounded-md text-center p-4 bg-white my-2">
+          <NavLink
+            to={"/dashboard/all-user"}
+            className={({ isActive }) =>
+              `flex items-center ml-5 ${
+                isActive ? " text-primary" : "text-black"
+              }`
+            }
+          >
+            <TbUser className="mr-3" /> All User
           </NavLink>
         </div>
         <div className="w-3/4 mx-auto rounded-md text-center p-4 bg-white my-2">

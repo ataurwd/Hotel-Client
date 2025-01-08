@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 const Cart = () => {
   const [cart, refetch] = useCart();
 
+
   const handelDelete = (id) => {
     axios.delete(`http://localhost:4000/cart/${id}`).then((res) => {
       Swal.fire({

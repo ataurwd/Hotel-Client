@@ -13,6 +13,7 @@ import Booking from './../pages/dashboard/Booking';
 import Review from './../pages/dashboard/Review';
 import Login from './../components/Login';
 import Register from './../components/Register';
+import AllUser from "../pages/dashboard/Admin/AllUser";
 
 const Route = () => {
   const route = new createBrowserRouter([
@@ -69,6 +70,10 @@ const Route = () => {
         {
           path: 'review',
           element: <Review/>
+        },
+        {
+          path: 'all-user',
+          element: <AllUser/>
         }
       ],
     },
