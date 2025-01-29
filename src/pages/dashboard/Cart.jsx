@@ -2,6 +2,7 @@ import React from "react";
 import useCart from "../../Hooks/useCart";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const [cart, refetch] = useCart();
@@ -37,7 +38,8 @@ const Cart = () => {
     <div className="overflow-x-auto">
       <div className="p-10 flex justify-between font-bold text-2xl">
         <h1>Total Product ({cart.length})</h1>
-        <h1>Total Price { totalPrice.toFixed(2)}</h1>
+        <h1>Total Price {totalPrice.toFixed(2)}</h1>
+        <Link className="btn btn-primary" to={'/dashboard/payment'}>Pay Now</Link>
       </div>
       <table className=" w-full border border-gray-200 bg-white shadow-lg px-5">
         {/* Table Header */}

@@ -51,7 +51,7 @@ const Dashboard = () => {
               }`
             }
           >
-            <TbCreditCard className="mr-3" /> Payment History
+            <TbCreditCard className="mr-3" /> Payment
           </NavLink>
         </div>
         <div className="w-3/4 mx-auto rounded-md text-center p-4 bg-white my-2">

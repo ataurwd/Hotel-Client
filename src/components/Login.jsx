@@ -38,7 +38,6 @@ const Login = () => {
         // to post user data
         axios.post('http://localhost:4000/user', userInfo)
           .then(res => {
-          console.log(res.data)
         })
       })
      .catch(err => console.log(err))

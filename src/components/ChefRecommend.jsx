@@ -8,7 +8,6 @@ import Swal from "sweetalert2";
 const ChefRecommend = () => {
   const [menu] = useMenu();
   const [cart, refetch] = useCart()
-  console.log(cart)
   const handelAddtoCart = (item) => {
     const data = {
       price: item.price,
