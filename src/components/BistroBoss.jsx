@@ -15,7 +15,7 @@ const BistroBoss = () => {
           Lorem ipsum dolor sit amet  adipisicing elit.
           Necessitatibus, libero accusamus laborum deserunt ratione dolor
           officiis praesentium! Deserunt magni aperiam dolor eius dolore at,
-          nihil iusto ducimus incidunt quibusdam nemo.
+          nihil iusto quibusdam nemo.
         </p>
       </div>
     </div>
